@@ -1,0 +1,152 @@
+header{
+  display: flex;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+
+  .logo{
+    transform: scale(.3);
+  }
+
+  .navbtn{
+    position: absolute;
+    right: 5%;
+    z-index: 10;
+  }
+}
+
+.navbtn{
+  width: 35px;
+  height: 25px;
+  position: absolute;
+  right: 5%;
+
+  &:not(.navbtn-close){
+    border-width: 5px 0 5px 0;
+    border-style: solid;
+    border-color: $mainColorBlue;
+
+    &:before{
+      content: '';
+      display: block;
+      position: absolute;
+      height: 5px;
+      background: $mainColorBlue;
+      width: 75%;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+    }
+
+    &:hover{
+      border-color: red;
+    }
+  }
+
+
+  &-close{
+    color: red;
+    &:before{
+      content: 'x';
+      font: 3em 'Open Sans';
+      font-weight: bold;
+      line-height: 0.3;
+      display: block;
+      position: absolute;
+    }
+    &:hover{
+      color: white;
+    }
+  }
+}
+
+nav{
+  display: none;
+}
+
+.navbtn.navbtn-close + nav{
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  background: rgba(0,0,0, .7);
+  display: block;
+  z-index: 9;
+
+  .nav_item{
+    display: block;
+    width: 100%;
+    background: rgba(0,0,3, .7);
+    transition: .5s top ease;
+
+    h2{
+      color: white;
+      text-align: center;
+      font: 30px 'Open Sans';
+      font-weight: 400;
+      padding: 20px 0;
+      text-transform: uppercase;
+      cursor: pointer;
+
+      &:hover{
+        color: red;
+        border-bottom-color: white;
+      }
+    }
+    position: fixed;
+    .nav_item_content{display: none}
+    &:nth-child(1){
+      animation: showNavItem 1.5s;
+      top:30%;
+    }
+    &:nth-child(2){
+      animation: showNavItem 2s;
+      top:45%;
+    }
+    &:nth-child(3){
+      animation: showNavItem 1.8s;
+      top: 60%;
+    }
+    &:not(:last-child){margin-bottom: 10px}
+  }
+  
+  .nav_item-selected{
+    top: 0;
+    height: 100%;
+    opacity: 1;
+    overflow: auto;
+    background: white;
+    z-index: 5;
+    h2{
+      color: white;
+      background: rgba(0,0,0,.9);
+      border-bottom: 0px;
+      position: relative;
+      &:hover{border-bottom-color: red}
+      &:after{
+        content: '';
+        display: block;
+        position: absolute;
+        width: 15px;
+        right: 5%;
+        height: 15px;
+        border-width: 0px 4px 4px 0;
+        transform: rotate(45deg);
+        border-color: transparent inherit inherit transparent;
+        border-style: solid;
+        top: 33%;
+        cursor: pointer;
+      }
+    }
+
+    .nav_item_content{
+      display: flex;
+      color: black;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

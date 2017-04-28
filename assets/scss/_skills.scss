@@ -1,0 +1,24 @@
+.nav_item_content-skills{
+  flex-flow: row wrap;
+  max-width: 550px;
+  margin: 50px auto 0 auto;
+  animation: 2s showElementFromTop;
+
+  figure{
+    &:not(:last-child){margin-right: 20px;}
+    img{
+      width: 120px;
+      height: 120px;
+      display: block;
+    }
+
+    figcaption{
+      text-align: center;
+      font: 1em 'Open Sans';
+    }
+
+    &:hover{
+      transform: scale(1.1);
+    }
+  }
+}

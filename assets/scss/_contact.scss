@@ -1,0 +1,43 @@
+.nav_item_content-contact{
+  animation: 2s showElementFromTop;
+  flex-flow: column nowrap;
+  div{
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+
+    .contact_link{
+      width: 100px;
+      height: 100px;
+      &:not(:last-child){
+        margin-right: 35px;
+      }
+
+      &:hover{
+        transform: scale(1.1);
+      }
+
+      &.contact_link-skype{
+        background-image: url(../img/contact/1493348978_Skype.png);
+      }
+      &.contact_link-telegram{
+        background-image: url(../img/contact/1493348870_social-56.png);
+      }
+      &.contact_link-github{
+        background-image: url(../img/contact/1493348948_github.png);
+      }
+      background-size: cover;
+      background-position: center;
+    }
+  }
+
+  .contact_mail{
+    font: 50px 'Coming Soon';
+    border-bottom: 2px solid red;
+    margin-top: 40px;
+
+    &:hover{
+      color: #666;
+    }
+  }
+}

@@ -1,0 +1,310 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700");
+@import url("https://fonts.googleapis.com/css?family=Coming+Soon");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; }
+
+ul {
+  list-style: none; }
+
+a {
+  text-decoration: none;
+  color: inherit; }
+
+.logo {
+  display: flex;
+  flex-flow: column nowrap;
+  text-align: center;
+  color: #003;
+  font-family: 'Open Sans'; }
+  .logo_name {
+    font-size: 70px;
+    font-weight: bold;
+    letter-spacing: 5px;
+    position: relative;
+    white-space: nowrap; }
+    .logo_name_letter {
+      color: red;
+      position: absolute;
+      font-size: 1.5em;
+      top: -18px;
+      left: 65px; }
+  .logo_prof {
+    font-size: 25px;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    font-weight: bold; }
+    .logo_prof:first-letter {
+      color: red; }
+
+body {
+  background: #fff; }
+
+.noscroll {
+  overflow: hidden; }
+
+header {
+  display: flex;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #ccc; }
+  header .logo {
+    transform: scale(0.3); }
+  header .navbtn {
+    position: absolute;
+    right: 5%;
+    z-index: 10; }
+
+.navbtn {
+  width: 35px;
+  height: 25px;
+  position: absolute;
+  right: 5%; }
+  .navbtn:not(.navbtn-close) {
+    border-width: 5px 0 5px 0;
+    border-style: solid;
+    border-color: #003; }
+    .navbtn:not(.navbtn-close):before {
+      content: '';
+      display: block;
+      position: absolute;
+      height: 5px;
+      background: #003;
+      width: 75%;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto; }
+    .navbtn:not(.navbtn-close):hover {
+      border-color: red; }
+  .navbtn-close {
+    color: red; }
+    .navbtn-close:before {
+      content: 'x';
+      font: 3em 'Open Sans';
+      font-weight: bold;
+      line-height: 0.3;
+      display: block;
+      position: absolute; }
+    .navbtn-close:hover {
+      color: white; }
+
+nav {
+  display: none; }
+
+.navbtn.navbtn-close + nav {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: block;
+  z-index: 9; }
+  .navbtn.navbtn-close + nav .nav_item {
+    display: block;
+    width: 100%;
+    background: rgba(0, 0, 3, 0.7);
+    transition: .5s top ease;
+    position: fixed; }
+    .navbtn.navbtn-close + nav .nav_item h2 {
+      color: white;
+      text-align: center;
+      font: 30px 'Open Sans';
+      font-weight: 400;
+      padding: 20px 0;
+      text-transform: uppercase;
+      cursor: pointer; }
+      .navbtn.navbtn-close + nav .nav_item h2:hover {
+        color: red;
+        border-bottom-color: white; }
+    .navbtn.navbtn-close + nav .nav_item .nav_item_content {
+      display: none; }
+    .navbtn.navbtn-close + nav .nav_item:nth-child(1) {
+      animation: showNavItem 1.5s;
+      top: 30%; }
+    .navbtn.navbtn-close + nav .nav_item:nth-child(2) {
+      animation: showNavItem 2s;
+      top: 45%; }
+    .navbtn.navbtn-close + nav .nav_item:nth-child(3) {
+      animation: showNavItem 1.8s;
+      top: 60%; }
+    .navbtn.navbtn-close + nav .nav_item:not(:last-child) {
+      margin-bottom: 10px; }
+  .navbtn.navbtn-close + nav .nav_item-selected {
+    top: 0;
+    height: 100%;
+    opacity: 1;
+    overflow: auto;
+    background: white;
+    z-index: 5; }
+    .navbtn.navbtn-close + nav .nav_item-selected h2 {
+      color: white;
+      background: rgba(0, 0, 0, 0.9);
+      border-bottom: 0px;
+      position: relative; }
+      .navbtn.navbtn-close + nav .nav_item-selected h2:hover {
+        border-bottom-color: red; }
+      .navbtn.navbtn-close + nav .nav_item-selected h2:after {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 15px;
+        right: 5%;
+        height: 15px;
+        border-width: 0px 4px 4px 0;
+        transform: rotate(45deg);
+        border-color: transparent inherit inherit transparent;
+        border-style: solid;
+        top: 33%;
+        cursor: pointer; }
+    .navbtn.navbtn-close + nav .nav_item-selected .nav_item_content {
+      display: flex;
+      color: black;
+      justify-content: center;
+      align-items: center; }
+
+.about {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Coming Soon';
+  width: 80%;
+  margin: 20px auto 0 auto; }
+  .about_hi {
+    font: 40px 'Coming Soon';
+    color: #003;
+    margin-bottom: 10px;
+    animation: showElementFromRight 3s; }
+  .about_avatar {
+    width: 200px;
+    height: 200px;
+    background: url("../img/ava.jpg") no-repeat 35% 55%;
+    border-radius: 100%;
+    opacity: 0;
+    animation: showElementFromLeft 4s 1s forwards; }
+  .about_info {
+    margin-top: 20px;
+    color: #003;
+    font: 30px 'Coming Soon';
+    text-align: center;
+    max-width: 80%;
+    opacity: 0;
+    animation: showElementFromTop 5s 1.5s forwards; }
+
+@keyframes showElementFromLeft {
+  from {
+    opacity: 0;
+    transform: translate(-40px, 0); }
+  to {
+    opacity: 1;
+    transform: translate(0, 0); } }
+@keyframes showElementFromRight {
+  from {
+    opacity: 0;
+    transform: translate(40px, 0); }
+  to {
+    opacity: 1;
+    transform: translate(0, 0); } }
+@keyframes showElementFromTop {
+  from {
+    opacity: 0;
+    transform: translate(0, -50px); }
+  to {
+    opacity: 1;
+    transform: translate(0, 0); } }
+@keyframes showNavItem {
+  from {
+    transform: translate(100%, 0); }
+  to {
+    transform: translate(0, 0); } }
+@keyframes welcomeLogo {
+  from {
+    transform: scale(1) translateY(300px); }
+  to {
+    transform: scale(0.3) translateY(0); } }
+.nav_item_content-contact {
+  animation: 2s showElementFromTop;
+  flex-flow: column nowrap; }
+  .nav_item_content-contact div {
+    margin-top: 60px;
+    display: flex;
+    justify-content: center; }
+    .nav_item_content-contact div .contact_link {
+      width: 100px;
+      height: 100px;
+      background-size: cover;
+      background-position: center; }
+      .nav_item_content-contact div .contact_link:not(:last-child) {
+        margin-right: 35px; }
+      .nav_item_content-contact div .contact_link:hover {
+        transform: scale(1.1); }
+      .nav_item_content-contact div .contact_link.contact_link-skype {
+        background-image: url(../img/contact/1493348978_Skype.png); }
+      .nav_item_content-contact div .contact_link.contact_link-telegram {
+        background-image: url(../img/contact/1493348870_social-56.png); }
+      .nav_item_content-contact div .contact_link.contact_link-github {
+        background-image: url(../img/contact/1493348948_github.png); }
+  .nav_item_content-contact .contact_mail {
+    font: 50px 'Coming Soon';
+    border-bottom: 2px solid red;
+    margin-top: 40px; }
+    .nav_item_content-contact .contact_mail:hover {
+      color: #666; }
+
+.nav_item_content-skills {
+  flex-flow: row wrap;
+  max-width: 550px;
+  margin: 50px auto 0 auto;
+  animation: 2s showElementFromTop; }
+  .nav_item_content-skills figure:not(:last-child) {
+    margin-right: 20px; }
+  .nav_item_content-skills figure img {
+    width: 120px;
+    height: 120px;
+    display: block; }
+  .nav_item_content-skills figure figcaption {
+    text-align: center;
+    font: 1em 'Open Sans'; }
+  .nav_item_content-skills figure:hover {
+    transform: scale(1.1); }
+
+.nav_item_content-portfolio {
+  flex-flow: row wrap;
+  max-width: 1000px;
+  margin: 50px auto 0 auto;
+  justify-content: space-around;
+  animation: 2s showElementFromTop; }
+  .nav_item_content-portfolio .work {
+    font-family: 'Open Sans';
+    padding-bottom: 15px;
+    border-bottom: 3px solid red;
+    margin: 0 20px 30px 20px;
+    flex: 1 1 300px; }
+    .nav_item_content-portfolio .work_info {
+      padding: 0 15px; }
+    .nav_item_content-portfolio .work h3 {
+      font-size: 20px;
+      margin: 5px 0; }
+    .nav_item_content-portfolio .work p {
+      color: #666; }
+    .nav_item_content-portfolio .work_img {
+      width: 100%;
+      height: 100px;
+      background: url(../img/programming-code-development-web-computer-php.jpg) no-repeat center; }
+    .nav_item_content-portfolio .work .work_links {
+      margin-top: 10px; }
+      .nav_item_content-portfolio .work .work_links a {
+        display: inline-block;
+        padding: 3px 5px;
+        border-radius: 8px;
+        border: 1px solid red; }
+        .nav_item_content-portfolio .work .work_links a:not(:last-child) {
+          margin-right: 20px; }
+        .nav_item_content-portfolio .work .work_links a:hover {
+          transform: scale(1.1); }
+
+/*# sourceMappingURL=main.css.map */
